@@ -1,11 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://d8c5xreiv3of"]
+[gd_scene load_steps=18 format=3 uid="uid://d8c5xreiv3of"]
 
 [ext_resource type="PackedScene" uid="uid://drgk81lrb0lrq" path="res://scenes/knight_player.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://bum6pd7oksjkj" path="res://scripts/game_manager_script.gd" id="1_j5wjh"]
 [ext_resource type="Texture2D" uid="uid://bnfmvrl0ynfbk" path="res://assets/sprites/world_tileset.png" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://dmrctkudkkmr4" path="res://scenes/animatable_body_2d.tscn" id="3_feb5d"]
 [ext_resource type="PackedScene" uid="uid://cuu8ymm5so8b3" path="res://scenes/coin.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://cd5xddicayghh" path="res://scenes/kill_zone.tscn" id="5_7jktm"]
 [ext_resource type="PackedScene" uid="uid://d2ssorqa1h0q4" path="res://scenes/enemy.tscn" id="6_ryrav"]
+[ext_resource type="FontFile" uid="uid://br8itn5otild3" path="res://assets/fonts/PixelOperator8.ttf" id="7_eow3j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
 texture = ExtResource("2_e2o6t")
@@ -256,6 +258,9 @@ _data = {
 
 [node name="Game" type="Node2D"]
 
+[node name="Game_manager" type="Node" parent="."]
+script = ExtResource("1_j5wjh")
+
 [node name="knight_player" parent="." instance=ExtResource("1_80nbo")]
 position = Vector2(-16, 44)
 
@@ -347,3 +352,12 @@ autoplay = "RESET"
 
 [node name="enemy" parent="." instance=ExtResource("6_ryrav")]
 position = Vector2(2, 64)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1.0
+offset_top = -20.0
+offset_right = 160.0
+offset_bottom = 16.0
+theme_override_fonts/font = ExtResource("7_eow3j")
+theme_override_font_sizes/font_size = 8
+text = "Press Space To Jump"
